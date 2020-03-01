@@ -35,39 +35,38 @@ namespace Laboratorio_Smith_Pedro_Estefany
             
             
             //Bucle para encontrar los factores del número ingresado
-            int sfactores(int n)
+            int sfactores(int n2)
             {
                 List<int> factoresP = new List<int>();
                 int numPrueba = 2;
                 int suma;
                 suma = 0;
-                while (n != 1)
+                while (n2 != 1)
                 {
                     
-                    if (n % numPrueba == 0)
+                    if (n2 % numPrueba == 0)
                     {
                         factoresP.Add(numPrueba);
-                        n = n / numPrueba;
+                        n2 = n2 / numPrueba;
                     }
                     else
                     {
                         numPrueba += 1;
                     }
-                    
-                    foreach (int i in factoresP)
-                    {
-                        suma += i;
-                    }
-                    
-            
+                   
                 }
-                
+                Console.ReadKey();
+                foreach (int i in factoresP)
+                {
+                    suma += i;
+                }
+
                 return suma;
             }
 
-            
+            Console.WriteLine(sDigitos(numero)); 
             Console.WriteLine(sfactores(numero));
-            Console.WriteLine(sDigitos(numero));
+            
 
 
 
