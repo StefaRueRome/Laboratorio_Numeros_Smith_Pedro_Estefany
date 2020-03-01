@@ -27,46 +27,52 @@ namespace Laboratorio_Smith_Pedro_Estefany
                     sumaDigitos += n % 10;
                     n = n / 10;
                 }
-               
+                //Console.WriteLine(sumaDigitos);
+                //Console.ReadLine();
                 return sumaDigitos;
-
             }
 
-            
-            
-            //Bucle para encontrar los factores del número ingresado
-            int sfactores(int n2)
-            {
-                List<int> factoresP = new List<int>();
-                int numPrueba = 2;
-                int suma;
-                suma = 0;
-                while (n2 != 1)
-                {
+
+
+            //Bucle para encontrar los factores del número ingresado, los cuales se pasar a string para asi poder sumar cada digito del número
+
+             String factoresP = "";
+             int numPrueba = 2;
+             while (numero != 1)
+             {
                     
-                    if (n2 % numPrueba == 0)
-                    {
-                        factoresP.Add(numPrueba);
-                        n2 = n2 / numPrueba;
-                    }
-                    else
-                    {
-                        numPrueba += 1;
-                    }
-                   
+                 if (numero % numPrueba == 0)
+                 {
+                     
+                    numero = numero / numPrueba;
+                    factoresP+=numPrueba.ToString();
                 }
-                Console.ReadKey();
-                foreach (int i in factoresP)
-                {
-                    suma += i;
-                }
-
-                return suma;
-            }
-
-            Console.WriteLine(sDigitos(numero)); 
-            Console.WriteLine(sfactores(numero));
+                 else
+                 {
+                     numPrueba += 1;
+                 }     
+             }
+            //Console.WriteLine(factoresP);
+            //Se suman los digitos del número ingresado
+            int Digitos = sDigitos(numero);
+            //La variable factoresP se convierte a int para poder sumar digitos
+            int IfactoresP = int.Parse(factoresP);
+            //suma de los factores primos
+            int sumaFinal=sDigitos(IfactoresP);
             
+             
+            if (Digitos == sumaFinal && IfactoresP>numero)
+            {
+                Console.WriteLine(IfactoresP);
+            }
+            else
+            {
+                Console.WriteLine("No existe");
+            }
+            Console.ReadLine();
+
+
+
 
 
 
