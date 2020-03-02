@@ -10,101 +10,92 @@ namespace Laboratorio_Smith_Pedro_Estefany
     {
         static void Main(string[] args)
         {
-
-            long numero;
-      
+            long casos = Convert.ToInt64(Console.ReadLine());
             
-            numero = Convert.ToInt64(Console.ReadLine());
-
-            bool esPrimo(long n)
+            for (long i = 1; i <= casos; i++)
             {
-                long divisor = 2;
-                long resto = 0;
-                while (divisor < numero)
+                long numero = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine(NumSmith(numero));
+                //Metodo que determina si el número que ingrese es primo, si es primo devuelve true de lo contarrio devuelve false.
+                bool esPrimo(long n)
                 {
-                    resto = n % divisor;
-                    if (resto == 0)
+                    long divisor = 2;
+                    long resto = 0;
+                    while (divisor < numero)
                     {
-                        return false;
-                    }
-                    divisor = divisor + 1;
-                }
-                return true;
-            }
-            
-            
-            //Metodo de suma de los digitos del número ingresado
-            long sDigitos(long n)
-            {
-                long sumaDigitos;
-                sumaDigitos = 0;
-                while (n > 0)
-                {
-                    sumaDigitos += n % 10;
-                    n = n / 10;
-                }
-                //Console.WriteLine(sumaDigitos);
-                //Console.ReadLine();
-                return sumaDigitos;
-            }
-
-
-
-            //Metodo para encontrar los factores del número ingresado, los cuales se pasar a string para asi poder sumar cada digito del número
-            long SacaFactores(long num)
-            {
-                String factoresP = "";
-                long numPrueba = 2;
-                while (num != 1)
-                {
-
-                    if (num % numPrueba == 0)
-                    {                       
-                        factoresP += numPrueba.ToString();
-                        num = num / numPrueba;
-                    }
-                    else
-                    {
-                        numPrueba += 1;
-                    }
-                }
-                return Convert.ToInt64(factoresP);
-            }
-            
-            long NumSmith(long n)
-            {
-                long numSGrande = 4937775;
-                long numeroSmith = 0;
-                for (long i = n; i <= numSGrande; i++)
-                {
-                    bool primo = esPrimo(i);
-                    if (primo == false)
-                    {
-                        long Factoresi = SacaFactores(i);
-                        long sumaFactoresi = sDigitos(Factoresi);
-                        long sumanumI = sDigitos(i);
-                        if (sumaFactoresi == sumanumI)
+                        resto = n % divisor;
+                        if (resto == 0)
                         {
-                            numeroSmith = i;
-                            break;
+                            return false;
+                        }
+                        divisor = divisor + 1;
+                    }
+                    return true;
+                }
+
+
+                //Metodo de suma de los digitos del número ingresado
+                long sDigitos(long n)
+                {
+                    long sumaDigitos = 0;
+                    while (n > 0)
+                    {
+                        sumaDigitos += n % 10;
+                        n = n / 10;
+                    }
+                    //Console.WriteLine(sumaDigitos);
+                    //Console.ReadLine();
+                    return sumaDigitos;
+                }
+
+                //Metodo para encontrar los factores del número ingresado, los cuales se pasar a string para asi poder sumar cada digito del número
+                long SacaFactores(long num)
+                {
+                    String factoresP = "";
+                    long numPrueba = 2;
+                    while (num != 1)
+                    {
+                        if (num % numPrueba == 0)
+                        {
+                            factoresP += numPrueba.ToString();
+                            num = num / numPrueba;
+                        }
+                        else
+                        {
+                            numPrueba += 1;
                         }
                     }
-                                                        
+                    return Convert.ToInt64(factoresP);
                 }
-                return numeroSmith;
-                
-            }
-            Console.WriteLine(NumSmith(numero));
+                //Metodo que determina cual es el número smith mas pequeño mayor que el número ingresado.
+                long NumSmith(long n)
+                {
+                    long numSGrande = 4937775;
+                    long numeroSmith = 0;
+                    for (long k = n; k <= numSGrande; k++)
+                    {
+                        bool primo = esPrimo(k);
+                        if (primo == false)
+                        {
+                            long Factoresi = SacaFactores(k);
+                            long sumaFactoresi = sDigitos(Factoresi);
+                            long sumanumI = sDigitos(k);
+                            if (sumaFactoresi == sumanumI)
+                            {
+                                numeroSmith = k;
+                                break;
+                            }
+                        }
 
+                    }
+                    return numeroSmith;
+
+                }
+                
+            }                                 
             Console.ReadLine();
             
-             
-
-
-
-
-
-
+            
         }
     }
 }
