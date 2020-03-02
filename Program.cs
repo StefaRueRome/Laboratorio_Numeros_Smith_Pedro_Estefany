@@ -10,17 +10,17 @@ namespace Laboratorio_Smith_Pedro_Estefany
     {
         static void Main(string[] args)
         {
-            
-            int numero;
+
+            long numero;
       
             
-            numero = Convert.ToInt32(Console.ReadLine());
-            
-            
+            numero = Convert.ToInt64(Console.ReadLine());
+
+
             //Metodo de suma de los digitos del número ingresado
-            int sDigitos(int n)
+            long sDigitos(long n)
             {
-                int sumaDigitos;
+                long sumaDigitos;
                 sumaDigitos = 0;
                 while (n > 0)
                 {
@@ -35,10 +35,10 @@ namespace Laboratorio_Smith_Pedro_Estefany
 
 
             //Metodo para encontrar los factores del número ingresado, los cuales se pasar a string para asi poder sumar cada digito del número
-            int SacaFactores(int num)
+            long SacaFactores(long num)
             {
                 String factoresP = "";
-                int numPrueba = 2;
+                long numPrueba = 2;
                 while (num != 1)
                 {
 
@@ -53,20 +53,20 @@ namespace Laboratorio_Smith_Pedro_Estefany
                         numPrueba += 1;
                     }
                 }
-                return int.Parse(factoresP);
+                return Convert.ToInt64(factoresP);
             }
-             
-            int NumSmith(int n)
+            
+            long NumSmith(long n)
             {
-                int numSGrande = 4937775;
-                int numeroSmith = 0;
-                for (int i = 0; i <= numSGrande; i++)
+                long numSGrande = 4937775;
+                long numeroSmith = 0;
+                for (long i = 0; i <= numSGrande; i++)
                 {
                     if (i >= n)
                     {
-                        int Factoresi = SacaFactores(i);
-                        int sumaFactoresi = sDigitos(Factoresi);
-                        int sumanumI = sDigitos(i);
+                        long Factoresi = SacaFactores(i);
+                        long sumaFactoresi = sDigitos(Factoresi);
+                        long sumanumI = sDigitos(i);
 
                         if (sumaFactoresi == sumanumI)
                         {
@@ -81,6 +81,9 @@ namespace Laboratorio_Smith_Pedro_Estefany
             Console.WriteLine(NumSmith(numero));
             Console.ReadLine();
             
+            Console.WriteLine(SacaFactores(numero));
+
+            Console.ReadLine();
             
              
 
