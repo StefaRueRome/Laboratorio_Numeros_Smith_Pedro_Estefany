@@ -16,7 +16,23 @@ namespace Laboratorio_Smith_Pedro_Estefany
             
             numero = Convert.ToInt64(Console.ReadLine());
 
-
+            bool esPrimo(long n)
+            {
+                long divisor = 2;
+                long resto = 0;
+                while (divisor < numero)
+                {
+                    resto = n % divisor;
+                    if (resto == 0)
+                    {
+                        return false;
+                    }
+                    divisor = divisor + 1;
+                }
+                return true;
+            }
+            
+            
             //Metodo de suma de los digitos del número ingresado
             long sDigitos(long n)
             {
@@ -61,17 +77,19 @@ namespace Laboratorio_Smith_Pedro_Estefany
                 long numeroSmith = 0;
                 for (long i = n; i <= numSGrande; i++)
                 {
-                    long Factoresi = SacaFactores(i);
-                    long sumaFactoresi = sDigitos(Factoresi);
-                    long sumanumI = sDigitos(i);
-
-                    if (sumaFactoresi == sumanumI)
+                    bool primo = esPrimo(i);
+                    if (primo == false)
                     {
-                        
-                        numeroSmith = i;
-                        break;
+                        long Factoresi = SacaFactores(i);
+                        long sumaFactoresi = sDigitos(Factoresi);
+                        long sumanumI = sDigitos(i);
+                        if (sumaFactoresi == sumanumI)
+                        {
+                            numeroSmith = i;
+                            break;
+                        }
                     }
-                
+                                                        
                 }
                 return numeroSmith;
                 
