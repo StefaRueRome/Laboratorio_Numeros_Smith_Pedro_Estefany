@@ -43,10 +43,9 @@ namespace Laboratorio_Smith_Pedro_Estefany
                 {
 
                     if (num % numPrueba == 0)
-                    {
-
-                        num = num / numPrueba;
+                    {                       
                         factoresP += numPrueba.ToString();
+                        num = num / numPrueba;
                     }
                     else
                     {
@@ -60,28 +59,24 @@ namespace Laboratorio_Smith_Pedro_Estefany
             {
                 long numSGrande = 4937775;
                 long numeroSmith = 0;
-                for (long i = 0; i <= numSGrande; i++)
+                for (long i = n; i <= numSGrande; i++)
                 {
-                    if (i >= n)
+                    long Factoresi = SacaFactores(i);
+                    long sumaFactoresi = sDigitos(Factoresi);
+                    long sumanumI = sDigitos(i);
+
+                    if (sumaFactoresi == sumanumI)
                     {
-                        long Factoresi = SacaFactores(i);
-                        long sumaFactoresi = sDigitos(Factoresi);
-                        long sumanumI = sDigitos(i);
-
-                        if (sumaFactoresi == sumanumI)
-                        {
-                            numeroSmith = i;
-                        }
+                        
+                        numeroSmith = i;
+                        break;
                     }
-                    
-
+                
                 }
-                return numeroSmith;               
+                return numeroSmith;
+                
             }
             Console.WriteLine(NumSmith(numero));
-            Console.ReadLine();
-            
-            Console.WriteLine(SacaFactores(numero));
 
             Console.ReadLine();
             
