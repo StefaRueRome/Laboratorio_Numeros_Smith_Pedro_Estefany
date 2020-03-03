@@ -15,7 +15,7 @@ namespace Laboratorio_Smith_Pedro_Estefany
             for (long i = 1; i <= casos; i++)
             {
                 long numero = Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine(NumSmith(numero));
+                Console.WriteLine($"Caso {i}:" +NumSmith(numero));
                 //Metodo que determina si el número que ingrese es primo, si es primo devuelve true de lo contarrio devuelve false.
                 bool esPrimo(long n)
                 {
