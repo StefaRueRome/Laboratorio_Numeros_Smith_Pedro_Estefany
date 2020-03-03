@@ -21,7 +21,7 @@ namespace Laboratorio_Smith_Pedro_Estefany
                 {
                     long divisor = 2;
                     long resto = 0;
-                    while (divisor < numero)
+                    while (divisor < n)
                     {
                         resto = n % divisor;
                         if (resto == 0)
